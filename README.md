@@ -8,8 +8,8 @@ Created using [Spring Initializr](http://start.spring.io/). Dependencies :
 
 # TroubleShooting
 1. [Post request persisting null values](https://stackoverflow.com/questions/38935912/requestbody-is-getting-null-values)
-2. __com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.esp.entity.Players` (no Creators, like default construct, exist): cannot deserialize from Object value (no delegate- or property-based Creator)__ : A default no-argument constructor is required to deserialize (map) the RequestBody from JSON to Object's fields. The contructor can have any access modifier, even private. If you're creating parameterized constructor for your Entity classes, don't forget to add a default no-argument constructor as well.
+2. __com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot construct instance of `com.esp.entity.Players` (no Creators, like default construct, exist): cannot deserialize from Object value (no delegate- or property-based Creator)__ : A default no-argument constructor is required to deserialize (map) the RequestBody from JSON to Object's fields. The contructor can have any access modifier, even private. If you're creating parameterized constructor for your Entity classes, don't forget to add a default no-argument constructor as well.        
 
-<!-- 3.
-4.
+3. [Jackson annotations guide](https://www.baeldung.com/jackson-annotations)    
+<!-- 4.
 5. -->
