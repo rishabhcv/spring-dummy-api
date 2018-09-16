@@ -1,19 +1,20 @@
 package com.esp.entity;
 
 import javax.validation.constraints.Max;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 public class Players {
 
-	
 	@Max(200)
+	@Positive
 	private int id;
 	
 	@Size(min=2, message="Name should be 2-40 charcters long!")
 	private String playerName;
 	
-	@NotNull
+	@NotEmpty
 	private String teamName;
 	
 	//Required

@@ -37,7 +37,7 @@ public class GenericExceptionResponse extends ResponseEntityExceptionHandler{
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(
 			MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-		ExceptionResponse expResp = new ExceptionResponse(ex.getMessage(), request.getDescription(false), new Date());
+		ExceptionResponse expResp = new ExceptionResponse(ex.getLocalizedMessage(), request.getDescription(false), new Date());
 		return new ResponseEntity<Object>(expResp, HttpStatus.BAD_REQUEST);
 	}
 

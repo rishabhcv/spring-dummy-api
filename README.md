@@ -35,6 +35,17 @@ Created using [Spring Initializr](http://start.spring.io/). Dependencies :
 		return new ResponseEntity<Object>(expResp, HttpStatus.BAD_REQUEST);
 	}
   ```      
+  9. Added HATEOAS links :
+  ```java
+  @GetMapping(path = "/players/{id}") 
+	public Resource<Players> findOnePlayer(@PathVariable int id) {
+  Resource<Players> resource = new Resource<Players>(player);
+        //static import of ControllerLinkBuilder methods
+		ControllerLinkBuilder uri = linkTo(methodOn(this.getClass()).displayAllPlayers());
+		resource.add(uri.withRel("all-players"));
+		return resource;
+		}  
+  ```        
 
 
 ## TroubleShooting 

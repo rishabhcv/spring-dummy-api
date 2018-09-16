@@ -17,7 +17,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.esp.entity.Players;
 import com.esp.exception.PlayerNotFoundException;
-import com.esp.exception.PostFailedException;
 import com.esp.repository.PlayerDao;
 
 @RestController("PlayerPostController")
@@ -28,9 +27,6 @@ public class PlayerPostController {
 	
 	@PostMapping(path = "/players")
 	public ResponseEntity<Players> createPlayer(@Valid @RequestBody Players player) {
-		if(player.getId()<0) {
-			throw new PostFailedException(player.getId());
-		}
 		playerDao.save(player);
 		URI location = ServletUriComponentsBuilder
 		.fromCurrentRequest()
