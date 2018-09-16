@@ -33,5 +33,10 @@ public class PlayerDao {
 	public void save(Players player) {
 	   playerRecord.add(player);
 	}
+	
+	//To be enhanced using iterator
+	public void delete(int id) {
+		   playerRecord.remove(id);
+		}
 
 }

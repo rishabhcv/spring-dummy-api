@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages= {"com.esp.controller", "com.esp.repository"})
+@ComponentScan(basePackages= {"com.esp.controller", "com.esp.repository", "com.esp.exception"})
 public class PlayerRestAppApplication {
 
 	public static void main(String[] args) {
