@@ -26,6 +26,15 @@ Created using [Spring Initializr](http://start.spring.io/). Dependencies :
 		return new ResponseEntity<Object>(expResp, HttpStatus.NOT_FOUND);
 	}
   ```
+  8. Added Validation using javax validation API's Annotations : @Valid, @Size, @NotNull, @Min,    etc. Added a handler method in Generic response handler: 
+  ```java
+  @Override
+	protected ResponseEntity<Object> handleMethodArgumentNotValid(
+			MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+		ExceptionResponse expResp = new ExceptionResponse(ex.getMessage(), request.getDescription(false), new Date());
+		return new ResponseEntity<Object>(expResp, HttpStatus.BAD_REQUEST);
+	}
+  ```      
 
 
 ## TroubleShooting 
