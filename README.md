@@ -7,6 +7,25 @@ Created using [Spring Initializr](http://start.spring.io/). Dependencies :
  
 ## Introduction
 
+1. @GetMapping(path = "/players/{id}")  & @PathVariable                                  
+2. @RequestBody                                    
+3. Exception class with @ResponseStatus(HttpStatus.NOT_FOUND) -- class level, method level             
+4. URI location = ServletUriComponentsBuilder                         
+		.fromCurrentRequest()                 
+		.path("/{id}")                        
+		.buildAndExpand(player.getId())                  
+		.toUri();                               
+		return ResponseEntity.created(location).build();                    
+  5. spring.jackson.serialization.INDENT_OUTPUT=true
+  6. @ControllerAdvice
+  7. generic Exception Handling using @ExceptionHandler and ResponseEntityExceptionHandler class [Read More](https://dzone.com/articles/global-exception-handling-with-controlleradvice)                        
+  ```java
+  @ExceptionHandler(PlayerNotFoundException.class)
+	public final ResponseEntity<Object> handleAllNotFoundExceptions(Exception ex, WebRequest request) throws Exception {
+		ExceptionResponse expResp = new ExceptionResponse(ex.getMessage(), request.getDescription(false), new Date());
+		return new ResponseEntity<Object>(expResp, HttpStatus.NOT_FOUND);
+	}
+  ```
 
 
 ## TroubleShooting 
